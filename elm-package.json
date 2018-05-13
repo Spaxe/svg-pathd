@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "summary": "Minimal, Complete SVG Path constructor for its `d` attribute",
     "repository": "https://github.com/spaxe/svg-pathd.git",
     "license": "MIT",
