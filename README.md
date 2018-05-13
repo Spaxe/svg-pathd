@@ -1,4 +1,4 @@
-# Svg.PathD - minimal constructor library for the SVG Path d attribute
+# Svg.PathD
 
 Install:
 
@@ -6,4 +6,6 @@ Install:
 
 ---
 
-See the Documentation on the Elm Package directory: http://package.elm-lang.org/packages/spaxe/svg-pathd/latest/
+## Documentation
+
+See the Documentation on the Elm Package directory: http://package.elm-lang.org/packages/spaxe/svg-pathd/latest/Svg-PathD
