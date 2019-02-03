@@ -1,4 +1,8 @@
-module Svg.PathD exposing (Segment(..), Point, segment, d_)
+module Svg.PathD exposing
+    ( pathD, Segment(..)
+    , segment
+    , Point
+    )
 
 {-| PathD - Minimal SVG Path constructor of the d attribute.
 
@@ -25,7 +29,7 @@ Example of drawing a custom shape:
 
 # Specifying a SVG Path
 
-@docs d_, Segment
+@docs pathD, Segment
 
 
 # Helper methods
@@ -39,8 +43,9 @@ Example of drawing a custom shape:
 
 -}
 
+import String exposing (fromFloat)
 import Svg
-import Svg.Attributes exposing (d)
+
 
 
 -- PATH BUILDER --
@@ -73,49 +78,50 @@ segment : Segment -> String
 segment s =
     let
         point x y =
-            toString x ++ " " ++ toString y
+            fromFloat x ++ " " ++ fromFloat y
 
         flag b =
             if b then
                 1
+
             else
                 0
     in
-        case s of
-            M ( x, y ) ->
-                "M" ++ point x y
+    case s of
+        M ( x, y ) ->
+            "M" ++ point x y
 
-            L ( x, y ) ->
-                "L" ++ point x y
+        L ( x, y ) ->
+            "L" ++ point x y
 
-            H x ->
-                "H" ++ toString x
+        H x ->
+            "H" ++ fromFloat x
 
-            V y ->
-                "V" ++ toString y
+        V y ->
+            "V" ++ fromFloat y
 
-            Z ->
-                "Z"
+        Z ->
+            "Z"
 
-            C ( x1, y1 ) ( x2, y2 ) ( x, y ) ->
-                "C" ++ point x1 y1 ++ ", " ++ point x2 y2 ++ ", " ++ point x y
+        C ( x1, y1 ) ( x2, y2 ) ( x, y ) ->
+            "C" ++ point x1 y1 ++ ", " ++ point x2 y2 ++ ", " ++ point x y
 
-            S ( x2, y2 ) ( x, y ) ->
-                "S" ++ point x2 y2 ++ ", " ++ point x y
+        S ( x2, y2 ) ( x, y ) ->
+            "S" ++ point x2 y2 ++ ", " ++ point x y
 
-            Q ( x1, y1 ) ( x, y ) ->
-                "Q" ++ point x1 y1 ++ ", " ++ point x y
+        Q ( x1, y1 ) ( x, y ) ->
+            "Q" ++ point x1 y1 ++ ", " ++ point x y
 
-            T ( x, y ) ->
-                "T" ++ point x y
+        T ( x, y ) ->
+            "T" ++ point x y
 
-            A ( rx, ry ) angle largeArc sweep ( x, y ) ->
-                "A" ++ point rx ry ++ " " ++ toString angle ++ " " ++ toString (flag largeArc) ++ " " ++ toString (flag sweep) ++ " " ++ point x y
+        A ( rx, ry ) angle largeArc sweep ( x, y ) ->
+            "A" ++ point rx ry ++ " " ++ fromFloat angle ++ " " ++ fromFloat (flag largeArc) ++ " " ++ fromFloat (flag sweep) ++ " " ++ point x y
 
 
 {-| Replaces `Svg.Attributes.d`. This function takes a list of Segments and
 produces a SVG d attribute with exact specifications.
 -}
-d_ : List Segment -> Svg.Attribute msg
-d_ segs =
-    d <| String.join " " <| List.map segment segs
+pathD : List Segment -> String
+pathD segs =
+    String.join " " <| List.map segment segs

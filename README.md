@@ -2,9 +2,13 @@
 
 Install:
 
-    elm-package install Spaxe/svg-pathd
+    elm install Spaxe/svg-pathd
 
 ---
+
+Run tests (set up [elm-test](https://package.elm-lang.org/packages/elm-explorations/test/latest/)):
+
+    elm-test
 
 ## Documentation
 
