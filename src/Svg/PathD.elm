@@ -187,70 +187,70 @@ segment seg =
             "a" ++ point rx ry ++ " " ++ fromFloat angle ++ " " ++ fromFloat (flag largeArc) ++ " " ++ fromFloat (flag sweep) ++ " " ++ point x y
 
 
-{-| Declarre a relative move-to SVG path command
+{-| Declare a relative move-to SVG path command
 -}
 m : Point -> Segment
 m =
     Md
 
 
-{-| Declarre a relative line-to SVG path command
+{-| Declare a relative line-to SVG path command
 -}
 l : Point -> Segment
 l =
     Ld
 
 
-{-| Declarre a relative horizontal line SVG path command
+{-| Declare a relative horizontal line SVG path command
 -}
 h : Float -> Segment
 h =
     Hd
 
 
-{-| Declarre a relative vertical line SVG path command
+{-| Declare a relative vertical line SVG path command
 -}
 v : Float -> Segment
 v =
     Vd
 
 
-{-| Declarre a relative close-path SVG path command
+{-| Declare a relative close-path SVG path command
 -}
 z : Segment
 z =
     Zd
 
 
-{-| Declarre a relative cubic curve-to SVG path command
+{-| Declare a relative cubic curve-to SVG path command
 -}
 c : Point -> Point -> Point -> Segment
 c =
     Cd
 
 
-{-| Declarre a relative smooth cubic curve-to SVG path command
+{-| Declare a relative smooth cubic curve-to SVG path command
 -}
 s : Point -> Point -> Segment
 s =
     Sd
 
 
-{-| Declarre a relative quadratic curve-to SVG path command
+{-| Declare a relative quadratic curve-to SVG path command
 -}
 q : Point -> Point -> Segment
 q =
     Qd
 
 
-{-| Declarre a relative smooth quadratic curve-to SVG path command
+{-| Declare a relative smooth quadratic curve-to SVG path command
 -}
 t : Point -> Segment
 t =
     Td
 
 
-{-| Declarre a relative arc SVG path command
+{-| Declare a relative arc SVG path command
 -}
 a : Point -> Float -> Bool -> Bool -> Point -> Segment
 a =
