@@ -1,9 +1,22 @@
 module Svg.PathD exposing
-    ( pathD, Segment(..)
+    (  pathD
+      , Segment
+            ( A
+            , C
+            , H
+            , L
+            , M
+            , Q
+            , S
+            , T
+            , V
+            , Z
+            )
+
     , a, c, h, l, m, q, s, t, v, z
     )
 
-{-| PathD - Minimal SVG Path constructor of the <svg> data (`d`) attribute.
+{-| PathD - Minimal, complete SVG Path constructor of the <svg> data (`d`) attribute.
 
 This library helps you specify SVG paths with a clean Elm interface. For the
 complete instruction on what each segment does, consult the MDN docs on SVG:
@@ -62,10 +75,9 @@ type alias Point =
     ( Float, Float )
 
 
-{-| Complete implementation of the SVG path `d` attribute.
-Commands ending with `-d` such as `Md` and `Ld` are implementation-details,
-and are not encouraged to be used. For clarity, use the relative commands in
-corresponding lowercase, such as `m` or `l`.
+{-| Complete implementation of the SVG path `d` attribute. For relative commands
+in corresponding lowercase, such as `m` or `l`, they are exposed from the
+top-level module.
 
     Qualifying imports may be used to resolve namespace clashing, like
 
