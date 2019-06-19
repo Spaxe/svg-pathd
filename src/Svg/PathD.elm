@@ -1,18 +1,5 @@
 module Svg.PathD exposing
-    (  pathD
-      , Segment
-            ( A
-            , C
-            , H
-            , L
-            , M
-            , Q
-            , S
-            , T
-            , V
-            , Z
-            )
-
+    ( pathD, Segment(..)
     , a, c, h, l, m, q, s, t, v, z
     )
 
@@ -53,7 +40,7 @@ coordinates. For how relative paths work, see <https://oreillymedia.github.io/Us
 
 # Helper methods
 
-@docs segment
+@docs a, c, h, l, m, q, s, t, v, z
 
 
 # Data Type
@@ -78,6 +65,9 @@ type alias Point =
 {-| Complete implementation of the SVG path `d` attribute. For relative commands
 in corresponding lowercase, such as `m` or `l`, they are exposed from the
 top-level module.
+
+    Construtors ending with `-d` are implementation details, and will be removed
+    in a future iteration. Use the corresponding lowercase function instead.
 
     Qualifying imports may be used to resolve namespace clashing, like
 
