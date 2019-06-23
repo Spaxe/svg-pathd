@@ -1,6 +1,7 @@
 module Svg.PathD exposing
     ( pathD, Segment(..)
     , a, c, h, l, m, q, s, t, v, z
+    , Point
     )
 
 {-| PathD - Minimal, complete SVG Path constructor of the <svg> data (`d`) attribute.
