@@ -63,18 +63,19 @@ type alias Point =
     ( Float, Float )
 
 
-{-| Complete implementation of the SVG path `d` attribute. For relative commands
-in corresponding lowercase, such as `m` or `l`, they are exposed from the
-top-level module.
+{-| Complete implementation of the SVG path `d` attribute.
 
-    Construtors ending with `-d` are implementation details, and will be removed
-    in a future iteration. Use the corresponding lowercase function instead.
+For relative commands in corresponding lowercase, such as `m` or `l`, they are
+exposed from the top-level module.
 
-    Qualifying imports may be used to resolve namespace clashing, like
+Construtors ending with `-d` are implementation details, and will be removed
+in a future iteration. Use the corresponding lowercase function instead.
 
-        import Svg.PathD as PathD exposing (Segment(..), m, l)
+Qualifying imports may be used to resolve namespace clashing, like
 
-    The commands will then be accessible as `PathD.M`, `PathD.Q`, `PathD.m` etc.
+    import Svg.PathD as PathD exposing (Segment(..), m, l)
+
+The commands will then be accessible as `PathD.M`, `PathD.Q`, `PathD.m` etc.
 
 -}
 type Segment
