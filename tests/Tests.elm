@@ -1,9 +1,8 @@
 module Tests exposing (suite)
 
-import Expect exposing (Expectation)
-import Fuzz exposing (Fuzzer, int, list, string)
+import Expect
 import Svg
-import Svg.PathD exposing (Segment(..), pathD, segment)
+import Svg.PathD exposing (Segment(..), a, c, h, l, m, pathD, q, s, t, v, z)
 import Test exposing (..)
 
 
@@ -29,6 +28,20 @@ suite =
                         , Q ( 1, 2 ) ( 4, 5 )
                         , T ( 34, 45 )
                         , A ( 6, 6 ) 180 True False ( 4, 4 )
+                        , Z
+                        ]
+        , test "can create mixed absolute and relative segments" <|
+            \_ ->
+                Expect.equal "C0 0, 5 10, 15 20 s19 25, 21 45 Q1 2, 4 5 t34 45 A6 6 180 1 0 4 4 l0 100 H5 v-5 Z" <|
+                    pathD
+                        [ C ( 0, 0 ) ( 5, 10 ) ( 15, 20 )
+                        , s ( 19, 25 ) ( 21, 45 )
+                        , Q ( 1, 2 ) ( 4, 5 )
+                        , t ( 34, 45 )
+                        , A ( 6, 6 ) 180 True False ( 4, 4 )
+                        , l ( 0, 100 )
+                        , H 5
+                        , v -5
                         , Z
                         ]
         ]
